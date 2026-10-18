@@ -10,7 +10,7 @@
 {%- set icmp_ignore_bogus_error_responses = ufw_sysctl.get('icmp_ignore_bogus_error_responses', 1) %}
 {%- set icmp_echo_ignore_all = ufw_sysctl.get('icmp_echo_ignore_all', 0) %}
 {%- set log_martians = ufw_sysctl.get('log_martians', 0) %}
-{%- set tcp_syncookies = ufw_sysctl.get('tcp_syncookies', 0) %}
+{%- set tcp_syncookies = ufw_sysctl.get('tcp_syncookies', 1) %}
 {%- set tcp_sack = ufw_sysctl.get('tcp_sack', 1) %}
 {%- set ipv6_autoconf = ufw_sysctl.get('ipv6_autoconf', 1) %}
 {%- set use_tempaddr = ufw_sysctl.get('use_tempaddr', 1) %}

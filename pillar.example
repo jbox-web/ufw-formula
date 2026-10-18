@@ -28,7 +28,7 @@ ufw:
     icmp_ignore_bogus_error_responses: 1
     icmp_echo_ignore_all: 0
     log_martians: 0
-    tcp_syncookies: 0
+    tcp_syncookies: 1
     tcp_sack: 1
     ipv6_autoconf: 1
     use_tempaddr: 1
