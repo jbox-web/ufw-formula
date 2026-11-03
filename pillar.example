@@ -21,6 +21,8 @@ ufw:
 
   sysctl:
     forwarding: 1
+    # Optional: IPv6 forwarding, defaults to the value of `forwarding`.
+    forwarding_ipv6: 0
     rp_filter: 1
     accept_source_route: 0
     accept_redirects: 0

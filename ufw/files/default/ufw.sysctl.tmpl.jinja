@@ -3,6 +3,8 @@
 # Your changes will be overwritten.
 ########################################################################
 {%- set forwarding = ufw_sysctl.get('forwarding', 0) %}
+{#- IPv6 follows IPv4 unless set: a forwarding host joins the subnet-router anycast address of each prefix. #}
+{%- set forwarding_ipv6 = ufw_sysctl.get('forwarding_ipv6', forwarding) %}
 {%- set rp_filter = ufw_sysctl.get('rp_filter', 1) %}
 {%- set accept_source_route = ufw_sysctl.get('accept_source_route', 0) %}
 {%- set accept_redirects = ufw_sysctl.get('accept_redirects', 0) %}
@@ -21,8 +23,8 @@
 
 # Uncomment this to allow this host to route packets between interfaces
 net/ipv4/ip_forward={{ forwarding }}
-net/ipv6/conf/default/forwarding={{ forwarding }}
-net/ipv6/conf/all/forwarding={{ forwarding }}
+net/ipv6/conf/default/forwarding={{ forwarding_ipv6 }}
+net/ipv6/conf/all/forwarding={{ forwarding_ipv6 }}
 
 # Turn on Source Address Verification in all interfaces to prevent some
 # spoofing attacks
